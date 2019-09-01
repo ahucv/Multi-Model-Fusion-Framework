@@ -6,7 +6,8 @@ Created by lolimay at 2019.08.20
 import os
 import multiprocessing
 import torch
-import os, sys
+import os
+import sys
 import torchvision
 import torchvision.transforms as transforms
 from utils.tracking_with_siamfc import tracking_with_siamfc
@@ -19,8 +20,8 @@ def tracking(model_index, frame):
     for index, item in enumerate(model_list):
         # load model
         net = torch.load(model)
-        net = net.to(device) # Move the model to GPU for calculation
-        
+        net = net.to(device)  # Move the model to GPU for calculation
+
         # evaluation mode
         net.eval()
 
@@ -34,11 +35,11 @@ def tracking(model_index, frame):
             best_bbox = find_the_best_bbox(bbox)
             predicted_bboxes.append(best_bbox)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     model_path = "../../models"
     model_list = []
     model_num = None
-    predicted_bboxes = [] # tracking result will be stored in this list
+    predicted_bboxes = []  # tracking result will be stored in this list
     dataset = os.path('../dataset')
 
     # Add models to model_list
@@ -48,6 +49,5 @@ if __name__ == '__main__':
     model_num = len(model_list)
 
     for i in range(model_num):
-        p = multiprocessing.Process(target=tracking, args=(i)) # tracking in parallel
+        p = multiprocessing.Process(target=tracking, args=(i))  # tracking in parallel
         p.start()
-
