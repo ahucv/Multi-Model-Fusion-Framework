@@ -35,7 +35,7 @@ def tracking(model_index, frame):
             predicted_bboxes.append(best_bbox)
 
 if __name__ == '__main__':
-    model_path = '../../models'
+    model_path = "../../models"
     model_list = []
     model_num = None
     predicted_bboxes = [] # tracking result will be stored in this list
