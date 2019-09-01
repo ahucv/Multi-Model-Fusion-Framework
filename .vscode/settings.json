@@ -1,18 +1,9 @@
 {
-    "python.pythonPath": "venv/bin/python",
+    "python.pythonPath": "venv/bin/python3.6",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.testing.unittestArgs": [
-        "-v",
-        "-s",
-        ".",
-        "-p",
-        "*_test.py"
+    "python.linting.pylintArgs": [
+        "--load-plugins", 
+        "pylint_quotes"
     ],
-    "python.testing.pytestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
-    "python.testing.unittestEnabled": false,
-    "python.linting.pep8Enabled": false,
-    "python.linting.flake8Enabled": false,
-    "python.testing.promptToConfigure": false
 }
